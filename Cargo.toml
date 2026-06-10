@@ -7,11 +7,11 @@ description = "Reusable NMP feedback module for project-scoped Nostr feedback th
 repository = "https://github.com/pablof7z/nmp-feedback"
 
 [dependencies]
-nmp-core = { version = "0.2.7", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "e1d502de898b53d85b1f9be52f34cee657f2c278" }
-nmp-ffi = { version = "0.2.7", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "e1d502de898b53d85b1f9be52f34cee657f2c278", features = ["signer-broker"] }
+nmp-core = { version = "0.2.9", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "104c3f76426fbb7c2456c957da960b08c659b21b" }
+nmp-ffi = { version = "0.2.9", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "104c3f76426fbb7c2456c957da960b08c659b21b", features = ["signer-broker"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
 [dev-dependencies]
-nmp-core = { version = "0.2.7", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "e1d502de898b53d85b1f9be52f34cee657f2c278", features = ["test-support"] }
-nmp-ffi = { version = "0.2.7", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "e1d502de898b53d85b1f9be52f34cee657f2c278", features = ["test-support", "signer-broker"] }
+nmp-core = { version = "0.2.9", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "104c3f76426fbb7c2456c957da960b08c659b21b", features = ["test-support"] }
+nmp-ffi = { version = "0.2.9", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "104c3f76426fbb7c2456c957da960b08c659b21b", features = ["test-support", "signer-broker"] }
