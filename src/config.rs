@@ -1,11 +1,14 @@
+#[cfg(feature = "nmp")]
 use nmp_core::planner::{InterestId, InterestLifecycle, InterestScope, LogicalInterest};
+#[cfg(feature = "nmp")]
 use nmp_core::stable_hash::stable_hash64;
+#[cfg(feature = "nmp")]
 use nmp_core::substrate::ViewDependencies;
 
 pub const DEFAULT_FEEDBACK_RELAY: &str = "wss://relay.tenex.chat";
+pub const KIND_FEEDBACK_NOTE: u32 = 1;
+pub const KIND_FEEDBACK_THREAD_METADATA: u32 = 513;
 
-const KIND_TEXT_NOTE: u32 = 1;
-const KIND_METADATA: u32 = 513;
 const DEFAULT_MAX_EVENTS: usize = 500;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -67,10 +70,11 @@ impl FeedbackConfig {
         (self.relay_url.clone(), "read".to_string())
     }
 
+    #[cfg(feature = "nmp")]
     #[must_use]
     pub fn interest(&self) -> LogicalInterest {
         let mut interest = ViewDependencies {
-            kinds: vec![KIND_TEXT_NOTE, KIND_METADATA],
+            kinds: vec![KIND_FEEDBACK_NOTE, KIND_FEEDBACK_THREAD_METADATA],
             tag_refs: vec![("a".to_string(), self.project_coordinate.clone())],
             relay_pin: Some(self.relay_url.clone()),
             limit: Some(self.max_events as u32),
@@ -118,9 +122,10 @@ impl FeedbackConfig {
         tags
     }
 
+    #[cfg(feature = "nmp")]
     #[must_use]
     pub(crate) fn accepts_event(&self, kind: u32, tags: &[Vec<String>]) -> bool {
-        if kind != KIND_TEXT_NOTE && kind != KIND_METADATA {
+        if kind != KIND_FEEDBACK_NOTE && kind != KIND_FEEDBACK_THREAD_METADATA {
             return false;
         }
         tags.iter().any(|tag| {
@@ -132,8 +137,9 @@ impl FeedbackConfig {
     }
 }
 
+#[cfg(feature = "nmp")]
 pub(crate) fn text_note_kind() -> u32 {
-    KIND_TEXT_NOTE
+    KIND_FEEDBACK_NOTE
 }
 
 #[cfg(test)]
@@ -163,6 +169,7 @@ mod tests {
         assert!(tags.contains(&vec!["p".to_string(), "pubkey".to_string()]));
     }
 
+    #[cfg(feature = "nmp")]
     #[test]
     fn interest_is_relay_pinned_and_project_scoped() {
         let interest = FeedbackConfig::new(COORD).interest();
