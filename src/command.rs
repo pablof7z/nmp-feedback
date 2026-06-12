@@ -94,7 +94,7 @@ fn dispatch_nmp_publish(app: *mut NmpApp, body: serde_json::Value) -> FeedbackCo
     if raw.is_null() {
         return FeedbackCommandOutcome::rejected("publish dispatch failed");
     }
-    nmp_ffi::nmp_app_free_string(raw);
+    nmp_ffi::nmp_free_string(raw);
     FeedbackCommandOutcome::accepted("queued")
 }
 
