@@ -11,7 +11,7 @@ default = ["nmp"]
 nmp = ["dep:nmp-core", "dep:nmp-ffi"]
 
 [dependencies]
-nmp-core = { version = "0.5.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "65fd349dd7ff9af9121df7ddea6476d377877880", optional = true }
-nmp-ffi = { version = "0.5.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "65fd349dd7ff9af9121df7ddea6476d377877880", features = ["signer-broker"], optional = true }
+nmp-core = { version = "0.6.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "4fdcb52d68cf4a7d203de3633620155e06e45ec3", optional = true }
+nmp-ffi = { version = "0.6.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "4fdcb52d68cf4a7d203de3633620155e06e45ec3", features = ["signer-broker"], optional = true }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
