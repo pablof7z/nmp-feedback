@@ -87,6 +87,7 @@ mod tests {
             created_at: 1_700_000_000,
             tags: vec![vec!["a".to_string(), coordinate.to_string()]],
             content: "feedback body".to_string(),
+            relay_provenance: Vec::new(),
         }
     }
 

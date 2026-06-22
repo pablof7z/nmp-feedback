@@ -8,10 +8,11 @@ repository = "https://github.com/pablof7z/nmp-feedback"
 
 [features]
 default = ["nmp"]
-nmp = ["dep:nmp-core", "dep:nmp-ffi"]
+nmp = ["dep:nmp-core", "dep:nmp-ffi", "dep:nmp-planner"]
 
 [dependencies]
-nmp-core = { version = "0.8.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "1b64e6aece35591066990d88f5f41d435f9c576d", optional = true }
-nmp-ffi = { version = "0.8.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "1b64e6aece35591066990d88f5f41d435f9c576d", features = ["signer-broker"], optional = true }
+nmp-core = { version = "0.8.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "bab262672d438a733f0acfd9c560d0c0f67938c0", optional = true }
+nmp-ffi = { version = "0.8.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "bab262672d438a733f0acfd9c560d0c0f67938c0", features = ["signer-broker"], optional = true }
+nmp-planner = { version = "0.8.0", git = "https://github.com/pablof7z/nostr-multi-platform.git", rev = "bab262672d438a733f0acfd9c560d0c0f67938c0", optional = true }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
